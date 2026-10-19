@@ -1,0 +1,10 @@
+Gladys Google Air Quality integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It calls the Google Maps Platform Air Quality API with the API key of the
+user, who accepts the Google Maps Platform Terms of Service. Google Maps is a
+trademark of Google LLC; this integration is not affiliated with nor endorsed
+by Google. The scope follows the Home Assistant "Google Air Quality"
+integration (Apache-2.0); no code is taken from it.

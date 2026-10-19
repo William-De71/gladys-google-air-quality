@@ -1,0 +1,1184 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Google Air Quality",
+  "description": {
+    "en": "Air quality from Google: universal and local indexes, PM2.5, NO₂, O₃, forecast, scenes, widgets.",
+    "fr": "Qualité de l’air par Google : indices universel et local, PM2,5, NO₂, O₃, prévision, scènes.",
+    "de": "Luftqualität von Google: universeller und lokaler Index, PM2,5, NO₂, O₃, Vorhersage, Szenen.",
+    "es": "Calidad del aire de Google: índices universal y local, PM2,5, NO₂, O₃, previsión, escenas."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-google-air-quality:0.1.0",
+  "gladys_version": ">=5.1.0",
+  "categories": ["environment"],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-google-air-quality/main/cover.jpg",
+  "transports": ["cloud"],
+  "location": true,
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Google Air Quality",
+        "fr": "Google Air Quality",
+        "de": "Google Air Quality",
+        "es": "Google Air Quality"
+      },
+      "description": {
+        "en": "How it works:\n1. In the Google Cloud console, in a project with a billing account, enable the “Air Quality API” and create an API key (the key of Google Weather or Google Maps Travel Time works too once the API is enabled in its project). Paste it below.\n2. Each house of Gladys with a location becomes a place; add other places with “Add a place”.\n3. Open the Discover tab and add the places: each one becomes a device with the Universal AQI, the local index, PM2.5, PM10, NO₂, O₃ and SO₂.\n4. Add the widgets to a dashboard and use the scenes.\nCost: every reading is one request, billed by Google beyond 10,000 free requests a month (then 5 USD per 1,000). With the defaults, a place costs about 870 requests a month; the integration stays within 90 % of the free usage and spaces the readings out rather than going over. The coordinates of the places are sent to Google.",
+        "fr": "Comment ça marche :\n1. Dans la console Google Cloud, dans un projet avec un compte de facturation, activez l’« Air Quality API » et créez une clé d’API (la clé de Google Weather ou Travel Time convient aussi, une fois l’API activée dans son projet). Collez-la ci-dessous.\n2. Chaque maison de Gladys dont l’emplacement est renseigné devient un lieu ; ajoutez-en d’autres avec « Ajouter un lieu ».\n3. Ouvrez l’onglet Découverte et ajoutez les lieux : chacun devient un appareil avec l’indice universel (UAQI), l’indice local, les PM2,5, PM10, NO₂, O₃ et SO₂.\n4. Ajoutez les widgets à un tableau de bord et utilisez les scènes.\nCoût : chaque mesure est une requête, facturée par Google au-delà de 10 000 requêtes gratuites par mois (puis 5 USD les 1 000). Avec les réglages par défaut, un lieu coûte environ 870 requêtes par mois ; l’intégration reste sous 90 % de l’usage gratuit et espace les mesures plutôt que de le dépasser. Les coordonnées des lieux sont envoyées à Google.",
+        "de": "So funktioniert es:\n1. Aktivieren Sie in der Google Cloud Console, in einem Projekt mit Rechnungskonto, die „Air Quality API“ und erstellen Sie einen API-Schlüssel (auch der Schlüssel von Google Weather oder Travel Time, sobald die API in dessen Projekt aktiv ist). Fügen Sie ihn unten ein.\n2. Jedes Haus in Gladys mit Standort wird zu einem Ort; weitere Orte fügen Sie mit „Ort hinzufügen“ hinzu.\n3. Öffnen Sie den Tab Entdecken und fügen Sie die Orte hinzu: Jeder wird zu einem Gerät mit universellem Index (UAQI), lokalem Index, PM2,5, PM10, NO₂, O₃ und SO₂.\n4. Fügen Sie die Widgets einem Dashboard hinzu und nutzen Sie die Szenen.\nKosten: Jede Messung ist eine Anfrage, die Google über 10.000 kostenlose Anfragen pro Monat hinaus berechnet (dann 5 USD pro 1.000). Mit den Standardwerten kostet ein Ort etwa 870 Anfragen im Monat; die Integration bleibt unter 90 % des Gratiskontingents und streckt eher die Abstände, als es zu überschreiten. Die Koordinaten der Orte werden an Google gesendet.",
+        "es": "Cómo funciona:\n1. En la consola de Google Cloud, en un proyecto con una cuenta de facturación, active la «Air Quality API» y cree una clave de API (la clave de Google Weather o de Google Maps Travel Time también sirve una vez activada la API en su proyecto). Péguela abajo.\n2. Cada casa de Gladys con ubicación se convierte en un lugar; añada otros con «Añadir un lugar».\n3. Abra la pestaña Descubrir y añada los lugares: cada uno se convierte en un dispositivo con el índice universal (UAQI), el índice local, PM2,5, PM10, NO₂, O₃ y SO₂.\n4. Añada los widgets a un panel y use las escenas.\nCoste: cada medida es una solicitud, facturada por Google más allá de 10 000 solicitudes gratuitas al mes (luego 5 USD por 1000). Con los valores por defecto, un lugar cuesta unas 870 solicitudes al mes; la integración se queda bajo el 90 % del uso gratuito y espacia las medidas antes que superarlo. Las coordenadas de los lugares se envían a Google."
+      },
+      "links": [
+        {
+          "url": "https://console.cloud.google.com/apis/library/airquality.googleapis.com",
+          "label": {
+            "en": "Enable the Air Quality API",
+            "fr": "Activer l’Air Quality API",
+            "de": "Air Quality API aktivieren",
+            "es": "Activar la Air Quality API"
+          }
+        },
+        {
+          "url": "https://console.cloud.google.com/google/maps-apis/credentials",
+          "label": {
+            "en": "Google Cloud console: API keys",
+            "fr": "Console Google Cloud : clés d’API",
+            "de": "Google Cloud Console: API-Schlüssel",
+            "es": "Consola de Google Cloud: claves de API"
+          }
+        },
+        {
+          "url": "https://developers.google.com/maps/billing-and-pricing/pricing",
+          "label": {
+            "en": "Google Maps Platform pricing",
+            "fr": "Tarifs Google Maps Platform",
+            "de": "Preise der Google Maps Platform",
+            "es": "Precios de Google Maps Platform"
+          }
+        },
+        {
+          "url": "https://github.com/William-De71/gladys-google-air-quality/blob/main/docs/fr.md",
+          "label": {
+            "en": "Documentation (French)",
+            "fr": "Documentation",
+            "de": "Dokumentation (Französisch)",
+            "es": "Documentación (francés)"
+          }
+        },
+        {
+          "url": "https://github.com/William-De71/gladys-google-air-quality/blob/main/docs/en.md",
+          "label": {
+            "en": "Documentation",
+            "fr": "Documentation (anglais)",
+            "de": "Dokumentation (Englisch)",
+            "es": "Documentación (inglés)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "api_key",
+      "type": "secret",
+      "required": true,
+      "label": {
+        "en": "Google Maps Platform API key",
+        "fr": "Clé d’API Google Maps Platform",
+        "de": "Google-Maps-Platform-API-Schlüssel",
+        "es": "Clave de API de Google Maps Platform"
+      },
+      "description": {
+        "en": "A key of a Google Cloud project with the Air Quality API enabled. Restrict it to the APIs it serves (and to the public IP address of your Gladys if it is fixed).",
+        "fr": "Une clé d’un projet Google Cloud où l’Air Quality API est activée. Limitez-la aux API qu’elle sert (et à l’adresse IP publique de votre Gladys si elle est fixe).",
+        "de": "Ein Schlüssel eines Google-Cloud-Projekts mit aktivierter Air Quality API. Beschränken Sie ihn auf die APIs, die er bedient (und auf die öffentliche IP-Adresse Ihres Gladys, wenn sie fest ist).",
+        "es": "Una clave de un proyecto de Google Cloud con la Air Quality API activada. Restrínjala a las API que usa (y a la dirección IP pública de su Gladys si es fija)."
+      },
+      "placeholder": {
+        "en": "AIza…",
+        "fr": "AIza…",
+        "de": "AIza…",
+        "es": "AIza…"
+      }
+    },
+    {
+      "key": "use_houses",
+      "type": "boolean",
+      "default": true,
+      "label": {
+        "en": "Follow the houses of Gladys",
+        "fr": "Suivre les maisons de Gladys",
+        "de": "Häuser von Gladys verfolgen",
+        "es": "Seguir las casas de Gladys"
+      },
+      "description": {
+        "en": "One place per house whose location is set in Gladys (Settings → Houses).",
+        "fr": "Un lieu par maison dont l’emplacement est renseigné dans Gladys (Paramètres → Maisons).",
+        "de": "Ein Ort pro Haus, dessen Standort in Gladys festgelegt ist (Einstellungen → Häuser).",
+        "es": "Un lugar por cada casa con ubicación en Gladys (Ajustes → Casas)."
+      }
+    },
+    {
+      "key": "refresh_minutes",
+      "type": "number",
+      "min": 30,
+      "max": 360,
+      "default": 60,
+      "label": {
+        "en": "Reading every (minutes)",
+        "fr": "Mesure toutes les (minutes)",
+        "de": "Messung alle (Minuten)",
+        "es": "Medida cada (minutos)"
+      },
+      "placeholder": {
+        "en": "60",
+        "fr": "60",
+        "de": "60",
+        "es": "60"
+      },
+      "description": {
+        "en": "Google updates the air quality once an hour: 60 is enough (30 to 360). One request per place each time.",
+        "fr": "Google met à jour la qualité de l’air une fois par heure : 60 suffit (30 à 360). Une requête par lieu à chaque fois.",
+        "de": "Google aktualisiert die Luftqualität einmal pro Stunde: 60 genügt (30 bis 360). Jedes Mal eine Anfrage pro Ort.",
+        "es": "Google actualiza la calidad del aire una vez por hora: 60 basta (30 a 360). Una solicitud por lugar cada vez."
+      }
+    },
+    {
+      "key": "forecast_hours",
+      "type": "number",
+      "min": 0,
+      "max": 24,
+      "default": 6,
+      "label": {
+        "en": "Forecast every (hours)",
+        "fr": "Prévision toutes les (heures)",
+        "de": "Vorhersage alle (Stunden)",
+        "es": "Previsión cada (horas)"
+      },
+      "placeholder": {
+        "en": "6",
+        "fr": "6",
+        "de": "6",
+        "es": "6"
+      },
+      "description": {
+        "en": "The 48-hour forecast of each place, for the forecast widget and scene action (one request per place each time). 0: no forecast.",
+        "fr": "La prévision sur 48 heures de chaque lieu, pour le widget et l’action de scène de prévision (une requête par lieu à chaque fois). 0 : pas de prévision.",
+        "de": "Die 48-Stunden-Vorhersage jedes Orts, für das Vorhersage-Widget und die Szenenaktion (jedes Mal eine Anfrage pro Ort). 0: keine Vorhersage.",
+        "es": "La previsión a 48 horas de cada lugar, para el widget y la acción de escena de previsión (una solicitud por lugar cada vez). 0: sin previsión."
+      }
+    },
+    {
+      "key": "local_index",
+      "type": "string",
+      "label": {
+        "en": "Local index (optional)",
+        "fr": "Indice local (facultatif)",
+        "de": "Lokaler Index (optional)",
+        "es": "Índice local (opcional)"
+      },
+      "placeholder": {
+        "en": "eaqi",
+        "fr": "eaqi",
+        "de": "eaqi",
+        "es": "eaqi"
+      },
+      "description": {
+        "en": "Empty: the default index of the country (ATMO in France, EAQI in Belgium…). Otherwise its Google code, such as eaqi, usa_epa or deu_uba.",
+        "fr": "Vide : l’indice par défaut du pays (ATMO en France, EAQI en Belgique…). Sinon son code Google, comme eaqi, usa_epa ou deu_uba.",
+        "de": "Leer: der Standardindex des Landes (UBA in Deutschland, EAQI in Belgien…). Sonst sein Google-Code, etwa eaqi, usa_epa oder deu_uba.",
+        "es": "Vacío: el índice por defecto del país (MITECO en España, EAQI en Bélgica…). Si no, su código de Google, como eaqi, usa_epa o deu_uba."
+      }
+    },
+    {
+      "key": "budget_percent",
+      "type": "number",
+      "min": 1,
+      "max": 1000,
+      "default": 90,
+      "label": {
+        "en": "Monthly budget (% of the free usage)",
+        "fr": "Budget mensuel (% de l’usage gratuit)",
+        "de": "Monatsbudget (% des Gratiskontingents)",
+        "es": "Presupuesto mensual (% del uso gratuito)"
+      },
+      "placeholder": {
+        "en": "90",
+        "fr": "90",
+        "de": "90",
+        "es": "90"
+      },
+      "description": {
+        "en": "Share of the 10,000 free monthly requests the integration may spend: 90 keeps a margin (Google counts other uses of the billing account too). Above 100, Google bills the extra requests.",
+        "fr": "Part des 10 000 requêtes mensuelles gratuites que l’intégration peut dépenser : 90 garde une marge (Google compte aussi les autres usages du compte de facturation). Au-delà de 100, Google facture les requêtes en plus.",
+        "de": "Anteil der 10.000 kostenlosen Monatsanfragen, den die Integration verbrauchen darf: 90 lässt einen Puffer (Google zählt auch andere Nutzungen des Rechnungskontos). Über 100 berechnet Google die zusätzlichen Anfragen.",
+        "es": "Parte de las 10 000 solicitudes mensuales gratuitas que la integración puede gastar: 90 deja un margen (Google cuenta también los otros usos de la cuenta de facturación). Por encima de 100, Google factura las solicitudes adicionales."
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "default": "auto",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Feature names, categories, health advice, scene summaries and messages of the buttons. Automatic: the language of your dashboard once a widget has been shown, guessed from the timezone of Gladys before that.",
+        "fr": "Noms des fonctionnalités, catégories, conseils santé, résumés des scènes et messages des boutons. Automatique : la langue de votre tableau de bord dès qu’un widget a été affiché, devinée d’après le fuseau horaire de Gladys avant cela.",
+        "de": "Funktionsnamen, Kategorien, Gesundheitshinweise, Szenen-Zusammenfassungen und Meldungen der Schaltflächen. Automatisch: die Sprache Ihres Dashboards, sobald ein Widget angezeigt wurde, vorher aus der Zeitzone von Gladys abgeleitet.",
+        "es": "Nombres de las funciones, categorías, consejos de salud, resúmenes de escenas y mensajes de los botones. Automático: el idioma de su panel en cuanto se haya mostrado un widget, deducido de la zona horaria de Gladys antes de eso."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "English",
+            "de": "English",
+            "es": "English"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "Français",
+            "fr": "Français",
+            "de": "Français",
+            "es": "Français"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "Deutsch",
+            "fr": "Deutsch",
+            "de": "Deutsch",
+            "es": "Deutsch"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Español",
+            "fr": "Español",
+            "de": "Español",
+            "es": "Español"
+          }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "add_place",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Add a place",
+        "fr": "Ajouter un lieu",
+        "de": "Ort hinzufügen",
+        "es": "Añadir un lugar"
+      },
+      "description": {
+        "en": "A place to follow besides the houses of Gladys: work, school, holiday home.",
+        "fr": "Un lieu à suivre en plus des maisons de Gladys : travail, école, maison de vacances.",
+        "de": "Ein zu verfolgender Ort neben den Häusern von Gladys: Arbeit, Schule, Ferienhaus.",
+        "es": "Un lugar que seguir además de las casas de Gladys: trabajo, colegio, casa de vacaciones."
+      },
+      "fields": [
+        {
+          "key": "name",
+          "type": "string",
+          "required": true,
+          "label": {
+            "en": "Name",
+            "fr": "Nom",
+            "de": "Name",
+            "es": "Nombre"
+          },
+          "placeholder": {
+            "en": "Office",
+            "fr": "Bureau",
+            "de": "Büro",
+            "es": "Oficina"
+          },
+          "description": {
+            "en": "Shown as the device name, in the widgets and in the scenes (60 characters at most).",
+            "fr": "Affiché comme nom de l’appareil, dans les widgets et dans les scènes (60 caractères au maximum).",
+            "de": "Wird als Gerätename, in den Widgets und in den Szenen angezeigt (höchstens 60 Zeichen).",
+            "es": "Se muestra como nombre del dispositivo, en los widgets y en las escenas (60 caracteres como máximo)."
+          }
+        },
+        {
+          "key": "coordinates",
+          "type": "string",
+          "required": true,
+          "label": {
+            "en": "Latitude, longitude",
+            "fr": "Latitude, longitude",
+            "de": "Breite, Länge",
+            "es": "Latitud, longitud"
+          },
+          "placeholder": {
+            "en": "45.7640, 4.8357",
+            "fr": "45.7640, 4.8357",
+            "de": "45.7640, 4.8357",
+            "es": "45.7640, 4.8357"
+          },
+          "description": {
+            "en": "Right-click the place in Google Maps and click the coordinates to copy them.",
+            "fr": "Clic droit sur le lieu dans Google Maps, puis clic sur les coordonnées pour les copier.",
+            "de": "Rechtsklick auf den Ort in Google Maps, dann auf die Koordinaten klicken, um sie zu kopieren.",
+            "es": "Clic derecho en el lugar en Google Maps y clic en las coordenadas para copiarlas."
+          }
+        }
+      ]
+    },
+    {
+      "key": "remove_place",
+      "timeout_seconds": 15,
+      "label": {
+        "en": "Remove a place",
+        "fr": "Supprimer un lieu",
+        "de": "Ort entfernen",
+        "es": "Eliminar un lugar"
+      },
+      "description": {
+        "en": "An added place (the houses are managed in Gladys). Its device stays until you delete it from the Devices tab.",
+        "fr": "Un lieu ajouté (les maisons se gèrent dans Gladys). Son appareil reste jusqu’à ce que vous le supprimiez depuis l’onglet Appareils.",
+        "de": "Ein hinzugefügter Ort (die Häuser werden in Gladys verwaltet). Sein Gerät bleibt, bis Sie es im Tab Geräte löschen.",
+        "es": "Un lugar añadido (las casas se gestionan en Gladys). Su dispositivo permanece hasta que lo elimine desde la pestaña Dispositivos."
+      },
+      "fields": [
+        {
+          "key": "place",
+          "type": "string",
+          "required": true,
+          "label": {
+            "en": "Place (name or number)",
+            "fr": "Lieu (nom ou numéro)",
+            "de": "Ort (Name oder Nummer)",
+            "es": "Lugar (nombre o número)"
+          },
+          "placeholder": {
+            "en": "#1",
+            "fr": "#1",
+            "de": "#1",
+            "es": "#1"
+          },
+          "description": {
+            "en": "As shown by “List the places”: the name, or the number such as #2.",
+            "fr": "Comme l’affiche « Lister les lieux » : le nom, ou le numéro comme #2.",
+            "de": "Wie „Orte auflisten“ es anzeigt: der Name oder die Nummer wie #2.",
+            "es": "Como lo muestra «Listar los lugares»: el nombre, o el número como #2."
+          }
+        }
+      ]
+    },
+    {
+      "key": "list_places",
+      "timeout_seconds": 15,
+      "label": {
+        "en": "List the places",
+        "fr": "Lister les lieux",
+        "de": "Orte auflisten",
+        "es": "Listar los lugares"
+      },
+      "description": {
+        "en": "Every place with its last reading and its last error, the intervals and the requests of the month.",
+        "fr": "Tous les lieux avec leur dernière mesure et leur dernière erreur, les intervalles et les requêtes du mois.",
+        "de": "Alle Orte mit letzter Messung und letztem Fehler, die Intervalle und die Anfragen des Monats.",
+        "es": "Todos los lugares con su última medida y su último error, los intervalos y las solicitudes del mes."
+      }
+    },
+    {
+      "key": "test_api_key",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Test the API key",
+        "fr": "Tester la clé d’API",
+        "de": "API-Schlüssel testen",
+        "es": "Probar la clave de API"
+      },
+      "description": {
+        "en": "Reads the air quality in Paris: one request.",
+        "fr": "Lit la qualité de l’air à Paris : une requête.",
+        "de": "Liest die Luftqualität in Paris: eine Anfrage.",
+        "es": "Lee la calidad del aire en París: una solicitud."
+      }
+    }
+  ],
+  "widgets": [
+    {
+      "key": "air_quality",
+      "icon": "wind",
+      "label": {
+        "en": "Air quality",
+        "fr": "Qualité de l’air",
+        "de": "Luftqualität",
+        "es": "Calidad del aire"
+      },
+      "description": {
+        "en": "One place: universal AQI, local index, PM2.5, NO₂, O₃, categories and health advice.",
+        "fr": "Un lieu : indice universel, indice local, PM2,5, NO₂, O₃, catégories et conseils santé.",
+        "de": "Ein Ort: universeller Index, lokaler Index, PM2,5, NO₂, O₃, Kategorien und Gesundheitshinweise.",
+        "es": "Un lugar: índice universal, índice local, PM2,5, NO₂, O₃, categorías y consejos de salud."
+      },
+      "settings": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Place",
+            "fr": "Lieu",
+            "de": "Ort",
+            "es": "Lugar"
+          },
+          "required": true,
+          "description": {
+            "en": "Among the places added as devices.",
+            "fr": "Parmi les lieux ajoutés comme appareils.",
+            "de": "Unter den als Geräte hinzugefügten Orten.",
+            "es": "Entre los lugares añadidos como dispositivos."
+          }
+        }
+      ]
+    },
+    {
+      "key": "forecast",
+      "icon": "trending-up",
+      "label": {
+        "en": "Air quality forecast",
+        "fr": "Prévision qualité de l’air",
+        "de": "Luftqualitätsprognose",
+        "es": "Previsión calidad del aire"
+      },
+      "description": {
+        "en": "The universal AQI of the next 48 hours at a place, with the worst hour of the next 24 marked.",
+        "fr": "L’indice universel des 48 prochaines heures d’un lieu, et l’heure la moins bonne des 24 suivantes.",
+        "de": "Universeller Index der nächsten 48 Stunden eines Orts, mit der schlechtesten der nächsten 24.",
+        "es": "El índice universal de las próximas 48 horas de un lugar, con la peor hora de las próximas 24."
+      },
+      "settings": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Place",
+            "fr": "Lieu",
+            "de": "Ort",
+            "es": "Lugar"
+          },
+          "required": true,
+          "description": {
+            "en": "Among the places added as devices.",
+            "fr": "Parmi les lieux ajoutés comme appareils.",
+            "de": "Unter den als Geräte hinzugefügten Orten.",
+            "es": "Entre los lugares añadidos como dispositivos."
+          }
+        }
+      ]
+    },
+    {
+      "key": "budget",
+      "icon": "bar-chart-2",
+      "label": {
+        "en": "Air quality requests",
+        "fr": "Requêtes qualité de l’air",
+        "de": "Luftqualitätsanfragen",
+        "es": "Solicitudes calidad aire"
+      },
+      "description": {
+        "en": "The requests of the month against the budget, what the places plan, and the state of the key.",
+        "fr": "Les requêtes du mois face au budget, ce que prévoient les lieux, et l’état de la clé.",
+        "de": "Die Anfragen des Monats gegenüber dem Budget, was die Orte planen, und der Zustand des Schlüssels.",
+        "es": "Las solicitudes del mes frente al presupuesto, lo previsto por los lugares y el estado de la clave."
+      }
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "category_changed",
+      "label": {
+        "en": "The air quality category changes",
+        "fr": "La catégorie de qualité de l’air change",
+        "de": "Die Luftqualitätskategorie ändert sich",
+        "es": "La categoría de calidad del aire cambia"
+      },
+      "description": {
+        "en": "At a scheduled reading, the category of the universal AQI or of the local index of a place differs from the previous reading.",
+        "fr": "Lors d’une mesure planifiée, la catégorie de l’indice universel ou de l’indice local d’un lieu diffère de la mesure précédente.",
+        "de": "Bei einer geplanten Messung unterscheidet sich die Kategorie des universellen oder des lokalen Index eines Orts von der vorigen Messung.",
+        "es": "En una medida programada, la categoría del índice universal o del índice local de un lugar difiere de la medida anterior."
+      },
+      "fields": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Place",
+            "fr": "Lieu",
+            "de": "Ort",
+            "es": "Lugar"
+          },
+          "description": {
+            "en": "Empty: every place.",
+            "fr": "Vide : tous les lieux.",
+            "de": "Leer: alle Orte.",
+            "es": "Vacío: todos los lugares."
+          }
+        },
+        {
+          "key": "index",
+          "type": "select",
+          "label": {
+            "en": "Index",
+            "fr": "Indice",
+            "de": "Index",
+            "es": "Índice"
+          },
+          "options": [
+            {
+              "value": "universal",
+              "label": {
+                "en": "Universal AQI",
+                "fr": "Indice universel",
+                "de": "Universeller Index",
+                "es": "Índice universal"
+              }
+            },
+            {
+              "value": "local",
+              "label": {
+                "en": "Local index",
+                "fr": "Indice local",
+                "de": "Lokaler Index",
+                "es": "Índice local"
+              }
+            }
+          ],
+          "description": {
+            "en": "Empty: both.",
+            "fr": "Vide : les deux.",
+            "de": "Leer: beide.",
+            "es": "Vacío: ambos."
+          }
+        },
+        {
+          "key": "level",
+          "type": "select",
+          "label": {
+            "en": "New universal AQI level",
+            "fr": "Nouveau niveau de l’indice universel",
+            "de": "Neue Stufe des universellen Index",
+            "es": "Nuevo nivel del índice universal"
+          },
+          "options": [
+            {
+              "value": "excellent",
+              "label": {
+                "en": "Excellent (80-100)",
+                "fr": "Excellente (80-100)",
+                "de": "Ausgezeichnet (80-100)",
+                "es": "Excelente (80-100)"
+              }
+            },
+            {
+              "value": "good",
+              "label": {
+                "en": "Good (60-79)",
+                "fr": "Bonne (60-79)",
+                "de": "Gut (60-79)",
+                "es": "Buena (60-79)"
+              }
+            },
+            {
+              "value": "moderate",
+              "label": {
+                "en": "Moderate (40-59)",
+                "fr": "Moyenne (40-59)",
+                "de": "Mäßig (40-59)",
+                "es": "Moderada (40-59)"
+              }
+            },
+            {
+              "value": "low",
+              "label": {
+                "en": "Low (20-39)",
+                "fr": "Médiocre (20-39)",
+                "de": "Schlecht (20-39)",
+                "es": "Baja (20-39)"
+              }
+            },
+            {
+              "value": "poor",
+              "label": {
+                "en": "Poor (0-19)",
+                "fr": "Mauvaise (0-19)",
+                "de": "Sehr schlecht (0-19)",
+                "es": "Mala (0-19)"
+              }
+            }
+          ],
+          "description": {
+            "en": "Universal AQI only (higher is better). Empty: any level.",
+            "fr": "Indice universel seulement (plus il est haut, meilleur est l’air). Vide : tout niveau.",
+            "de": "Nur universeller Index (je höher, desto besser). Leer: jede Stufe.",
+            "es": "Solo índice universal (cuanto más alto, mejor). Vacío: cualquier nivel."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Place name",
+            "fr": "Nom du lieu",
+            "de": "Name des Orts",
+            "es": "Nombre del lugar"
+          }
+        },
+        {
+          "key": "index",
+          "type": "string",
+          "label": {
+            "en": "Index (universal or local)",
+            "fr": "Indice (universal ou local)",
+            "de": "Index (universal oder local)",
+            "es": "Índice (universal o local)"
+          }
+        },
+        {
+          "key": "category",
+          "type": "string",
+          "label": {
+            "en": "New category",
+            "fr": "Nouvelle catégorie",
+            "de": "Neue Kategorie",
+            "es": "Nueva categoría"
+          }
+        },
+        {
+          "key": "previous_category",
+          "type": "string",
+          "label": {
+            "en": "Previous category",
+            "fr": "Catégorie précédente",
+            "de": "Vorherige Kategorie",
+            "es": "Categoría anterior"
+          }
+        },
+        {
+          "key": "level",
+          "type": "string",
+          "label": {
+            "en": "Universal AQI level",
+            "fr": "Niveau de l’indice universel",
+            "de": "Stufe des universellen Index",
+            "es": "Nivel del índice universal"
+          }
+        },
+        {
+          "key": "previous_level",
+          "type": "string",
+          "label": {
+            "en": "Previous level",
+            "fr": "Niveau précédent",
+            "de": "Vorherige Stufe",
+            "es": "Nivel anterior"
+          }
+        },
+        {
+          "key": "aqi",
+          "type": "number",
+          "label": {
+            "en": "Index value",
+            "fr": "Valeur de l’indice",
+            "de": "Indexwert",
+            "es": "Valor del índice"
+          }
+        },
+        {
+          "key": "dominant_pollutant",
+          "type": "string",
+          "label": {
+            "en": "Dominant pollutant",
+            "fr": "Polluant majoritaire",
+            "de": "Hauptschadstoff",
+            "es": "Contaminante principal"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    },
+    {
+      "key": "budget_alert",
+      "label": {
+        "en": "The monthly budget is almost used",
+        "fr": "Le budget du mois est presque utilisé",
+        "de": "Das Monatsbudget ist fast verbraucht",
+        "es": "El presupuesto del mes está casi gastado"
+      },
+      "description": {
+        "en": "The requests of the month reach 80 % of the budget, then 100 %: once each per month.",
+        "fr": "Les requêtes du mois atteignent 80 % du budget, puis 100 % : une fois chacun par mois.",
+        "de": "Die Anfragen des Monats erreichen 80 % des Budgets, dann 100 %: je einmal pro Monat.",
+        "es": "Las solicitudes del mes alcanzan el 80 % del presupuesto y luego el 100 %: una vez cada uno al mes."
+      },
+      "fields": [
+        {
+          "key": "level",
+          "type": "select",
+          "label": {
+            "en": "Level",
+            "fr": "Niveau",
+            "de": "Stufe",
+            "es": "Nivel"
+          },
+          "options": [
+            {
+              "value": "warning",
+              "label": {
+                "en": "80 % used",
+                "fr": "80 % utilisés",
+                "de": "80 % verbraucht",
+                "es": "80 % gastado"
+              }
+            },
+            {
+              "value": "exhausted",
+              "label": {
+                "en": "Fully used",
+                "fr": "Entièrement utilisé",
+                "de": "Ganz verbraucht",
+                "es": "Gastado del todo"
+              }
+            }
+          ],
+          "description": {
+            "en": "Empty: both.",
+            "fr": "Vide : les deux.",
+            "de": "Leer: beide.",
+            "es": "Vacío: ambos."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "level",
+          "type": "string",
+          "label": {
+            "en": "Level (warning or exhausted)",
+            "fr": "Niveau (warning ou exhausted)",
+            "de": "Stufe (warning oder exhausted)",
+            "es": "Nivel (warning o exhausted)"
+          }
+        },
+        {
+          "key": "used",
+          "type": "number",
+          "label": {
+            "en": "Requests used",
+            "fr": "Requêtes utilisées",
+            "de": "Verbrauchte Anfragen",
+            "es": "Solicitudes usadas"
+          }
+        },
+        {
+          "key": "budget",
+          "type": "number",
+          "label": {
+            "en": "Monthly budget",
+            "fr": "Budget mensuel",
+            "de": "Monatsbudget",
+            "es": "Presupuesto mensual"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    },
+    {
+      "key": "api_key_refused",
+      "label": {
+        "en": "Google refuses the API key",
+        "fr": "Google refuse la clé d’API",
+        "de": "Google lehnt den API-Schlüssel ab",
+        "es": "Google rechaza la clave de API"
+      },
+      "description": {
+        "en": "Invalid key, Air Quality API not enabled, no billing account: once, until a request works again.",
+        "fr": "Clé invalide, Air Quality API non activée, pas de compte de facturation : une fois, jusqu’à ce qu’une requête fonctionne de nouveau.",
+        "de": "Ungültiger Schlüssel, Air Quality API nicht aktiviert, kein Rechnungskonto: einmal, bis eine Anfrage wieder funktioniert.",
+        "es": "Clave no válida, Air Quality API no activada, sin cuenta de facturación: una vez, hasta que una solicitud vuelva a funcionar."
+      },
+      "variables": [
+        {
+          "key": "reason",
+          "type": "string",
+          "label": {
+            "en": "Reason given by Google",
+            "fr": "Raison donnée par Google",
+            "de": "Von Google genannter Grund",
+            "es": "Motivo dado por Google"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "get_air_quality",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Read the air quality",
+        "fr": "Lire la qualité de l’air",
+        "de": "Luftqualität lesen",
+        "es": "Leer la calidad del aire"
+      },
+      "description": {
+        "en": "The last reading of a place, for a message or a condition (a request only when it is older than the interval, or when asked).",
+        "fr": "La dernière mesure d’un lieu, pour un message ou une condition (une requête seulement si elle est plus ancienne que l’intervalle, ou sur demande).",
+        "de": "Die letzte Messung eines Orts, für eine Nachricht oder eine Bedingung (eine Anfrage nur, wenn sie älter als das Intervall ist, oder auf Wunsch).",
+        "es": "La última medida de un lugar, para un mensaje o una condición (una solicitud solo si es más antigua que el intervalo, o si se pide)."
+      },
+      "fields": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Place",
+            "fr": "Lieu",
+            "de": "Ort",
+            "es": "Lugar"
+          },
+          "required": true
+        },
+        {
+          "key": "refresh",
+          "type": "boolean",
+          "default": false,
+          "label": {
+            "en": "Read it now",
+            "fr": "La lire maintenant",
+            "de": "Jetzt lesen",
+            "es": "Leerla ahora"
+          },
+          "description": {
+            "en": "One request, unless the place was read less than a minute ago.",
+            "fr": "Une requête, sauf si le lieu a été mesuré il y a moins d’une minute.",
+            "de": "Eine Anfrage, außer der Ort wurde vor weniger als einer Minute gemessen.",
+            "es": "Una solicitud, salvo si el lugar se midió hace menos de un minuto."
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "uaqi",
+          "type": "number",
+          "label": {
+            "en": "Universal AQI (0-100, higher is better)",
+            "fr": "Indice universel (0-100, plus haut = meilleur)",
+            "de": "Universeller Index (0-100, höher = besser)",
+            "es": "Índice universal (0-100, más alto = mejor)"
+          }
+        },
+        {
+          "key": "level",
+          "type": "string",
+          "label": {
+            "en": "Level (excellent… poor)",
+            "fr": "Niveau (excellent… poor)",
+            "de": "Stufe (excellent… poor)",
+            "es": "Nivel (excellent… poor)"
+          }
+        },
+        {
+          "key": "category",
+          "type": "string",
+          "label": {
+            "en": "Category",
+            "fr": "Catégorie",
+            "de": "Kategorie",
+            "es": "Categoría"
+          }
+        },
+        {
+          "key": "local_index",
+          "type": "string",
+          "label": {
+            "en": "Local index name",
+            "fr": "Nom de l’indice local",
+            "de": "Name des lokalen Index",
+            "es": "Nombre del índice local"
+          }
+        },
+        {
+          "key": "local_aqi",
+          "type": "number",
+          "label": {
+            "en": "Local index value",
+            "fr": "Valeur de l’indice local",
+            "de": "Wert des lokalen Index",
+            "es": "Valor del índice local"
+          }
+        },
+        {
+          "key": "local_category",
+          "type": "string",
+          "label": {
+            "en": "Local index category",
+            "fr": "Catégorie de l’indice local",
+            "de": "Kategorie des lokalen Index",
+            "es": "Categoría del índice local"
+          }
+        },
+        {
+          "key": "dominant_pollutant",
+          "type": "string",
+          "label": {
+            "en": "Dominant pollutant",
+            "fr": "Polluant majoritaire",
+            "de": "Hauptschadstoff",
+            "es": "Contaminante principal"
+          }
+        },
+        {
+          "key": "pm25",
+          "type": "number",
+          "label": {
+            "en": "PM2.5 (µg/m³)",
+            "fr": "PM2,5 (µg/m³)",
+            "de": "PM2,5 (µg/m³)",
+            "es": "PM2,5 (µg/m³)"
+          }
+        },
+        {
+          "key": "pm10",
+          "type": "number",
+          "label": {
+            "en": "PM10 (µg/m³)",
+            "fr": "PM10 (µg/m³)",
+            "de": "PM10 (µg/m³)",
+            "es": "PM10 (µg/m³)"
+          }
+        },
+        {
+          "key": "no2",
+          "type": "number",
+          "label": {
+            "en": "NO₂ (µg/m³)",
+            "fr": "NO₂ (µg/m³)",
+            "de": "NO₂ (µg/m³)",
+            "es": "NO₂ (µg/m³)"
+          }
+        },
+        {
+          "key": "o3",
+          "type": "number",
+          "label": {
+            "en": "O₃ (µg/m³)",
+            "fr": "O₃ (µg/m³)",
+            "de": "O₃ (µg/m³)",
+            "es": "O₃ (µg/m³)"
+          }
+        },
+        {
+          "key": "so2",
+          "type": "number",
+          "label": {
+            "en": "SO₂ (µg/m³)",
+            "fr": "SO₂ (µg/m³)",
+            "de": "SO₂ (µg/m³)",
+            "es": "SO₂ (µg/m³)"
+          }
+        },
+        {
+          "key": "co",
+          "type": "number",
+          "label": {
+            "en": "CO (µg/m³)",
+            "fr": "CO (µg/m³)",
+            "de": "CO (µg/m³)",
+            "es": "CO (µg/m³)"
+          }
+        },
+        {
+          "key": "health_recommendation",
+          "type": "string",
+          "label": {
+            "en": "Health advice",
+            "fr": "Conseil santé",
+            "de": "Gesundheitshinweis",
+            "es": "Consejo de salud"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    },
+    {
+      "key": "get_forecast",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Read the air quality forecast",
+        "fr": "Lire la prévision de qualité de l’air",
+        "de": "Luftqualitätsprognose lesen",
+        "es": "Leer la previsión de calidad del aire"
+      },
+      "description": {
+        "en": "The worst hour of the coming hours at a place: to warn before a run or before airing the house.",
+        "fr": "L’heure la moins bonne des heures à venir d’un lieu : pour prévenir avant un footing ou avant d’aérer.",
+        "de": "Die schlechteste Stunde der kommenden Stunden an einem Ort: um vor dem Joggen oder Lüften zu warnen.",
+        "es": "La peor hora de las próximas horas en un lugar: para avisar antes de correr o de ventilar."
+      },
+      "fields": [
+        {
+          "key": "place",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Place",
+            "fr": "Lieu",
+            "de": "Ort",
+            "es": "Lugar"
+          },
+          "required": true
+        },
+        {
+          "key": "hours",
+          "type": "number",
+          "min": 1,
+          "max": 48,
+          "default": 12,
+          "label": {
+            "en": "Next hours",
+            "fr": "Heures à venir",
+            "de": "Kommende Stunden",
+            "es": "Próximas horas"
+          },
+          "description": {
+            "en": "1 to 48.",
+            "fr": "1 à 48.",
+            "de": "1 bis 48.",
+            "es": "1 a 48."
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "worst_uaqi",
+          "type": "number",
+          "label": {
+            "en": "Lowest universal AQI",
+            "fr": "Indice universel le plus bas",
+            "de": "Niedrigster universeller Index",
+            "es": "Índice universal más bajo"
+          }
+        },
+        {
+          "key": "worst_level",
+          "type": "string",
+          "label": {
+            "en": "Its level",
+            "fr": "Son niveau",
+            "de": "Seine Stufe",
+            "es": "Su nivel"
+          }
+        },
+        {
+          "key": "worst_category",
+          "type": "string",
+          "label": {
+            "en": "Its category",
+            "fr": "Sa catégorie",
+            "de": "Seine Kategorie",
+            "es": "Su categoría"
+          }
+        },
+        {
+          "key": "worst_time",
+          "type": "string",
+          "label": {
+            "en": "Its hour (HH:MM)",
+            "fr": "Son heure (HH:MM)",
+            "de": "Seine Uhrzeit (HH:MM)",
+            "es": "Su hora (HH:MM)"
+          }
+        },
+        {
+          "key": "worst_local_category",
+          "type": "string",
+          "label": {
+            "en": "Local index category then",
+            "fr": "Catégorie de l’indice local à ce moment",
+            "de": "Kategorie des lokalen Index dann",
+            "es": "Categoría del índice local entonces"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary sentence",
+            "fr": "Phrase de résumé",
+            "de": "Zusammenfassung",
+            "es": "Frase de resumen"
+          }
+        }
+      ]
+    }
+  ]
+}

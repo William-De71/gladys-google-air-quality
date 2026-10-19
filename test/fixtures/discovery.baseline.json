@@ -1,0 +1,455 @@
+{
+  "devices": {
+    "category_index": {
+      "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b",
+      "should_poll": false,
+      "params": ["PLACE", "LOCAL_INDEX"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:uaqi",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "unit": "aqi",
+          "min": 0,
+          "max": 100,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:pm25",
+          "category": "pm25-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 1000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:pm10",
+          "category": "pm10-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:no2",
+          "category": "no2-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:o3",
+          "category": "o3-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:so2",
+          "category": "so2-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:category",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:local_category",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:house:6a8b2f0e-1c2d-4e5f-8a9b-0c1d2e3f4a5b:dominant_pollutant",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "numeric_index": {
+      "external_id": "ext:test-integration:place:a1b2c3d4",
+      "should_poll": false,
+      "params": ["PLACE", "LOCAL_INDEX"],
+      "features": [
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:uaqi",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "unit": "aqi",
+          "min": 0,
+          "max": 100,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:local_aqi",
+          "category": "airquality-sensor",
+          "type": "aqi",
+          "unit": "aqi",
+          "min": 0,
+          "max": 500,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:pm25",
+          "category": "pm25-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 1000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:pm10",
+          "category": "pm10-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:no2",
+          "category": "no2-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:o3",
+          "category": "o3-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:so2",
+          "category": "so2-sensor",
+          "type": "decimal",
+          "unit": "microgram-per-cubic-meter",
+          "min": 0,
+          "max": 2000,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:category",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:local_category",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:test-integration:place:a1b2c3d4:dominant_pollutant",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "config_schema": [
+      {
+        "key": "intro",
+        "type": "section"
+      },
+      {
+        "key": "api_key",
+        "type": "secret"
+      },
+      {
+        "key": "use_houses",
+        "type": "boolean"
+      },
+      {
+        "key": "refresh_minutes",
+        "type": "number"
+      },
+      {
+        "key": "forecast_hours",
+        "type": "number"
+      },
+      {
+        "key": "local_index",
+        "type": "string"
+      },
+      {
+        "key": "budget_percent",
+        "type": "number"
+      },
+      {
+        "key": "language",
+        "type": "select"
+      }
+    ],
+    "actions": ["add_place", "remove_place", "list_places", "test_api_key"],
+    "action_fields": {
+      "add_place": ["name", "coordinates"],
+      "remove_place": ["place"],
+      "list_places": [],
+      "test_api_key": []
+    },
+    "widgets": [
+      {
+        "key": "air_quality",
+        "settings": ["place"]
+      },
+      {
+        "key": "forecast",
+        "settings": ["place"]
+      },
+      {
+        "key": "budget",
+        "settings": []
+      }
+    ],
+    "scene_triggers": [
+      {
+        "key": "category_changed",
+        "fields": [
+          {
+            "key": "place",
+            "options": []
+          },
+          {
+            "key": "index",
+            "options": ["universal", "local"]
+          },
+          {
+            "key": "level",
+            "options": ["excellent", "good", "moderate", "low", "poor"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "name",
+            "type": "string"
+          },
+          {
+            "key": "index",
+            "type": "string"
+          },
+          {
+            "key": "category",
+            "type": "string"
+          },
+          {
+            "key": "previous_category",
+            "type": "string"
+          },
+          {
+            "key": "level",
+            "type": "string"
+          },
+          {
+            "key": "previous_level",
+            "type": "string"
+          },
+          {
+            "key": "aqi",
+            "type": "number"
+          },
+          {
+            "key": "dominant_pollutant",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "budget_alert",
+        "fields": [
+          {
+            "key": "level",
+            "options": ["warning", "exhausted"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "level",
+            "type": "string"
+          },
+          {
+            "key": "used",
+            "type": "number"
+          },
+          {
+            "key": "budget",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "api_key_refused",
+        "fields": [],
+        "variables": [
+          {
+            "key": "reason",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "get_air_quality",
+        "fields": ["place", "refresh"],
+        "outputs": [
+          {
+            "key": "uaqi",
+            "type": "number"
+          },
+          {
+            "key": "level",
+            "type": "string"
+          },
+          {
+            "key": "category",
+            "type": "string"
+          },
+          {
+            "key": "local_index",
+            "type": "string"
+          },
+          {
+            "key": "local_aqi",
+            "type": "number"
+          },
+          {
+            "key": "local_category",
+            "type": "string"
+          },
+          {
+            "key": "dominant_pollutant",
+            "type": "string"
+          },
+          {
+            "key": "pm25",
+            "type": "number"
+          },
+          {
+            "key": "pm10",
+            "type": "number"
+          },
+          {
+            "key": "no2",
+            "type": "number"
+          },
+          {
+            "key": "o3",
+            "type": "number"
+          },
+          {
+            "key": "so2",
+            "type": "number"
+          },
+          {
+            "key": "co",
+            "type": "number"
+          },
+          {
+            "key": "health_recommendation",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "get_forecast",
+        "fields": ["place", "hours"],
+        "outputs": [
+          {
+            "key": "worst_uaqi",
+            "type": "number"
+          },
+          {
+            "key": "worst_level",
+            "type": "string"
+          },
+          {
+            "key": "worst_category",
+            "type": "string"
+          },
+          {
+            "key": "worst_time",
+            "type": "string"
+          },
+          {
+            "key": "worst_local_category",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
