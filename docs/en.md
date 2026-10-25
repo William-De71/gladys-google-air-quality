@@ -15,7 +15,7 @@ The image above is a generated illustration, not a screenshot. Not affiliated wi
 
 ## Prerequisites
 
-- Gladys Assistant 5.1.0 or later.
+- Gladys Assistant 5.3.0 or later.
 - A **Google Maps Platform API key** with the **Air Quality API** enabled:
   1. In the [Google Cloud console](https://console.cloud.google.com/), create a project (or pick the one of your Google Weather or Google Maps Travel Time key) with a **billing account**: Google asks for one even when you stay within the free usage.
   2. Enable the **Air Quality API** (APIs & Services → Library → "Air Quality API", or [this link](https://console.cloud.google.com/apis/library/airquality.googleapis.com)).

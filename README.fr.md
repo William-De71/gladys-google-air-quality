@@ -5,7 +5,7 @@
 [![Licence : Apache-2.0](https://img.shields.io/badge/licence-Apache--2.0-blue.svg)](LICENSE)
 [![Dernière version](https://img.shields.io/github/v/release/William-De71/gladys-google-air-quality?sort=semver)](https://github.com/William-De71/gladys-google-air-quality/releases)
 [![CI](https://img.shields.io/github/actions/workflow/status/William-De71/gladys-google-air-quality/release.yml?branch=main&label=CI)](https://github.com/William-De71/gladys-google-air-quality/actions/workflows/release.yml)
-[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.1.0-2f6fb5)](https://gladysassistant.com)
+[![Gladys](https://img.shields.io/badge/Gladys-%E2%89%A5%205.3.0-2f6fb5)](https://gladysassistant.com)
 
 ![Google Air Quality pour Gladys Assistant](cover.jpg)
 
@@ -100,7 +100,7 @@ Exemples :
 
 ## Prérequis
 
-- Gladys Assistant **5.1.0** ou plus récent (widgets et scènes des intégrations) : les instances plus anciennes ne peuvent pas installer l’intégration.
+- Gladys Assistant **5.3.0** ou plus récent (widgets et scènes des intégrations, mots-clés du catalogue de Gladys 5.3) : les instances plus anciennes ne peuvent pas installer l’intégration.
 - Une **clé d’API Google Maps Platform** : un projet Google Cloud avec un compte de facturation (Google en demande un même dans l’usage gratuit) et l’**Air Quality API** activée. La clé de Google Weather ou de Google Maps Travel Time convient une fois l’Air Quality API activée dans son projet.
 - L’emplacement de votre maison renseigné dans Gladys (Paramètres → Maisons), ou des lieux ajoutés avec « Ajouter un lieu ».
 
